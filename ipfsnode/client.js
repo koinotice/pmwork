@@ -53,10 +53,10 @@ let nodesStarted = 0
  * @returns {void}
  */
 const didStartHandler = () => {
-  //if (++nodesStarted === 2) {
+  if (++nodesStarted === 1) {
     // If both nodes are up, start talking
     connectAndTalk()
-  //}
+  }
 }
 
 /**
@@ -64,10 +64,10 @@ const didStartHandler = () => {
  * @returns {void}
  */
 const didStopHandler = () => {
-  //if (--nodesStarted < 1) {
+  if (--nodesStarted < 1) {
     console.log('all nodes stopped, exiting.')
     process.exit(0)
-  //}
+  }
 }
 
 /**
@@ -92,26 +92,27 @@ const doStop = (err) => {
 const connectAndTalk = async () => {
   console.log('connecting the nodes...')
   const nodeId = await node.id()
-  //const dataToAdd = Buffer.from('Hello, private friend!')
+  const dataToAdd = Buffer.from('Hello, private friend!')
   console.log(nodeId)
   // Connect the nodes
   //ip4/172.17.0.1/tcp/6100/ipfs/QmVwgZbw8Cv9h9dtud6NJ2CmF2gCrvmxu86M6SQzVdh4e9
   // This will error when different private keys are used
-  // try {
-  //   await node1.swarm.connect(node2Id.addresses[0])
-  // } catch (err) {
-  //   return doStop(err)
-  // }
+  try {
+    await node.swarm.connect("ip4/47.89.245.183/tcp/6100/ipfs/QmVwgZbw8Cv9h9dtud6NJ2CmF2gCrvmxu86M6SQzVdh4e9")
+  } catch (err) {
+
+    return doStop(err)
+  }
   // console.log('the nodes are connected, let\'s add some data')
   //
   // // Add some data to node 1
-  // let addedCID
-  // try {
-  //   addedCID = await node1.add(dataToAdd)
-  // } catch (err) {
-  //   return doStop(err)
-  // }
-  // console.log(`added ${addedCID[0].path} to the node1`)
+   let addedCID
+  try {
+    addedCID = await node.add(dataToAdd)
+  } catch (err) {
+    return doStop(err)
+  }
+  console.log(`added ${addedCID[0].path} to the node1`)
   //
   // // Retrieve the data from node 2
   // let cattedData
