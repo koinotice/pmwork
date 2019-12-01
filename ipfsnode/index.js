@@ -114,12 +114,13 @@ const connectAndTalk = async () => {
   // console.log(`added ${addedCID[0].path} to the node1`)
   //
   // // Retrieve the data from node 2
-  // let cattedData
-  // try {
-  //   cattedData = await node2.cat(addedCID[0].path)
-  // } catch (err) {
-  //   return doStop(err)
-  // }
+    let cattedData
+  try {
+    cattedData = await node2.cat("QmWieS644X8JVgk4XYjWFjCG3VMHPrdEFNS9HdnSJBdfYy")
+    console.log(cattedData)
+  } catch (err) {
+    return doStop(err)
+  }
   // assert.deepEqual(cattedData.toString(), dataToAdd.toString(), 'Should have equal data')
   // console.log(`successfully retrieved "${dataToAdd.toString()}" from node2`)
 

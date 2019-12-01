@@ -98,7 +98,7 @@ const connectAndTalk = async () => {
   //ip4/172.17.0.1/tcp/6100/ipfs/QmVwgZbw8Cv9h9dtud6NJ2CmF2gCrvmxu86M6SQzVdh4e9
   // This will error when different private keys are used
   try {
-    await node.swarm.connect("ip4/47.89.245.183/tcp/6100/ipfs/QmVwgZbw8Cv9h9dtud6NJ2CmF2gCrvmxu86M6SQzVdh4e9")
+    await node.swarm.connect("/ip4/47.89.245.183/tcp/6100/ipfs/QmVwgZbw8Cv9h9dtud6NJ2CmF2gCrvmxu86M6SQzVdh4e9")
   } catch (err) {
 
     return doStop(err)
