@@ -12,25 +12,29 @@ const { mkdirp } = require('./utils')
 // Create two separate repo paths so we can run two nodes and check their output
 const repo = path.resolve('../data', 'repo', '.ipfs')
 mkdirp(repo)
-
-// Create a buffer and write the swarm key to it
-const swarmKey = Buffer.alloc(95)
-writeKey(swarmKey)
-
-// This key is for the `TASK` mentioned in the writeFileSync calls below
-const otherSwarmKey = Buffer.alloc(95)
-writeKey(otherSwarmKey)
+//
+// // Create a buffer and write the swarm key to it
+// const swarmKey = Buffer.alloc(95)
+//
+// console.log(swarmKey)
+// writeKey(swarmKey)
+//
+// // This key is for the `TASK` mentioned in the writeFileSync calls below
+// const otherSwarmKey = Buffer.alloc(95)
+// writeKey(otherSwarmKey)
 
 // Add the swarm key to both repos
-const swarmKeyPath = path.resolve(repo, 'swarm.key')
-fs.writeFileSync(swarmKeyPath, swarmKey)
+//const swarmKeyPath = path.resolve(repo, 'swarm.key')
+const swarm = './swarm.key';
+
+//fs.copyFileSync(swarm, swarmKeyPath)
 // TASK: switch the commented out line below so we're using a different key, to see the nodes fail to connect
 // fs.writeFileSync(swarmKey2Path, otherSwarmKey)
 
 // Create the first ipfs node
 const node = new IPFS({
   repo: repo,
-  libp2p: privateLibp2pBundle(swarmKeyPath),
+  libp2p: privateLibp2pBundle(swarm),
   config: {
     Addresses: {
       // Set the swarm address so we dont get port collision on the nodes
