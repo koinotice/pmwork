@@ -116,7 +116,7 @@ const connectAndTalk = async () => {
   // // Retrieve the data from node 2
     let cattedData
   try {
-    cattedData = await node2.cat("QmWieS644X8JVgk4XYjWFjCG3VMHPrdEFNS9HdnSJBdfYy")
+    cattedData = await node.cat("QmWieS644X8JVgk4XYjWFjCG3VMHPrdEFNS9HdnSJBdfYy")
     console.log(cattedData)
   } catch (err) {
     return doStop(err)
