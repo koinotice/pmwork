@@ -10,7 +10,7 @@ const privateLibp2pBundle = require('./libp2p-bundle')
 const { mkdirp } = require('./utils')
 
 // Create two separate repo paths so we can run two nodes and check their output
-const repo = path.resolve('./tmp', 'repo', '.ipfs')
+const repo = path.resolve('../data', 'repo', '.ipfs')
 mkdirp(repo)
 
 // Create a buffer and write the swarm key to it
