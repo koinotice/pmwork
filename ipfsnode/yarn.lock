@@ -934,6 +934,11 @@ chownr@^1.1.1:
   resolved "https://registry.npm.taobao.org/chownr/download/chownr-1.1.3.tgz#42d837d5239688d55f303003a508230fa6727142"
   integrity sha1-Qtg31SOWiNVfMDADpQgjD6ZycUI=
 
+chunky@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/chunky/-/chunky-0.0.0.tgz#1e7580a23c083897d2ad662459e7efd8465f608a"
+  integrity sha1-HnWAojwIOJfSrWYkWefv2EZfYIo=
+
 ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/ci-info/download/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
@@ -1052,6 +1057,16 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.npm.taobao.org/concat-map/download/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
+
+concat-stream@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
+  integrity sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==
+  dependencies:
+    buffer-from "^1.0.0"
+    inherits "^2.0.3"
+    readable-stream "^2.2.2"
+    typedarray "^0.0.6"
 
 "concat-stream@github:hugomrdias/concat-stream#feat/smaller":
   version "2.0.0"
@@ -2953,9 +2968,9 @@ keccak@^2.0.0:
     safe-buffer "^5.2.0"
 
 keypair@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/keypair/download/keypair-1.0.1.tgz#7603719270afb6564ed38a22087a06fc9aa4ea1b"
-  integrity sha1-dgNxknCvtlZO04oiCHoG/Jqk6hs=
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/keypair/-/keypair-1.0.4.tgz#a749a45f388593f3950f18b3757d32a93bd8ce83"
+  integrity sha512-zwhgOhhniaL7oxMgUMKKw5219PWWABMO+dgMnzJOQ2/5L3XJtTJGhW2PEXlxXj9zaccdReZJZ83+4NPhVfNVDg==
 
 keyv@^3.0.0:
   version "3.1.0"
@@ -3368,19 +3383,23 @@ libp2p-mdns@~0.12.0:
     peer-id "~0.12.2"
     peer-info "~0.15.1"
 
-libp2p-pnet@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npm.taobao.org/libp2p-pnet/download/libp2p-pnet-0.1.0.tgz#5f81524346ba3ad667f190589f887ab0f25dbf60"
-  integrity sha1-X4FSQ0a6OtZn8ZBYn4h6sPJdv2A=
+libp2p-mplex@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/libp2p-mplex/-/libp2p-mplex-0.8.5.tgz#a81a10f009c3cccd97f66da11c5f950a6ca37de7"
+  integrity sha512-L/1xbk8Mux2vroxfH2nfLrqyHfMdl4ScnIXhmQm19tlHZokcg/sadI5XmjdsBqMq3nP/q8wgNjIuX9IX6m1C6w==
   dependencies:
-    debug "^3.1.0"
-    interface-connection "~0.3.2"
-    pull-cat "^1.1.11"
-    pull-defer "~0.2.2"
-    pull-handshake "^1.1.4"
-    pull-reader "^1.3.1"
-    pull-stream "^3.6.7"
-    xsalsa20 "^1.0.2"
+    async "^2.6.2"
+    chunky "0.0.0"
+    concat-stream "^1.6.2"
+    debug "^4.1.0"
+    interface-connection "~0.3.3"
+    pull-catch "^1.0.1"
+    pull-stream "^3.6.9"
+    pull-stream-to-stream "^1.3.4"
+    pump "^3.0.0"
+    readable-stream "^3.1.1"
+    stream-to-pull-stream "^1.7.2"
+    varint "^5.0.0"
 
 libp2p-pubsub@~0.2.0:
   version "0.2.1"
@@ -3423,7 +3442,7 @@ libp2p-record@~0.7.0:
     multihashing-async "~0.7.0"
     protons "^1.0.1"
 
-libp2p-secio@~0.11.0:
+libp2p-secio@^0.11.1, libp2p-secio@~0.11.0:
   version "0.11.1"
   resolved "https://registry.npm.taobao.org/libp2p-secio/download/libp2p-secio-0.11.1.tgz#984fe8cc77640feca290d09065615fcaa80c433a"
   integrity sha1-mE/ozHdkD+yikNCQZWFfyqgMQzo=
@@ -3441,7 +3460,7 @@ libp2p-secio@~0.11.0:
     pull-length-prefixed "^1.3.1"
     pull-stream "^3.6.9"
 
-libp2p-tcp@^0.13.0, libp2p-tcp@~0.13.0:
+libp2p-tcp@^0.13.0, libp2p-tcp@^0.13.2, libp2p-tcp@~0.13.0:
   version "0.13.2"
   resolved "https://registry.npm.taobao.org/libp2p-tcp/download/libp2p-tcp-0.13.2.tgz#4f70760c657f1991aa025d16d14225bc8aa018a1"
   integrity sha1-T3B2DGV/GZGqAl0W0UIlvIqgGKE=
@@ -4514,7 +4533,12 @@ pull-cat@^1.1.11, pull-cat@^1.1.9:
   resolved "https://registry.npm.taobao.org/pull-cat/download/pull-cat-1.1.11.tgz#b642dd1255da376a706b6db4fa962f5fdb74c31b"
   integrity sha1-tkLdElXaN2pwa220+pYvX9t0wxs=
 
-pull-defer@^0.2.3, pull-defer@~0.2.2, pull-defer@~0.2.3:
+pull-catch@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/pull-catch/-/pull-catch-1.0.1.tgz#61be4d3d4184436a89994bec975f1ff4aea854cb"
+  integrity sha512-wrKbmEYySNETxOYXDTCJ8L/rcAFMayOifne2a+X9C0wSm6ttIWHHXwMYQh6k8iDRvtMM8itYkBlP4leKBJTiKA==
+
+pull-defer@^0.2.3, pull-defer@~0.2.3:
   version "0.2.3"
   resolved "https://registry.npm.taobao.org/pull-defer/download/pull-defer-0.2.3.tgz#4ee09c6d9e227bede9938db80391c3dac489d113"
   integrity sha1-TuCcbZ4ie+3pk424A5HD2sSJ0RM=
@@ -4622,7 +4646,7 @@ pull-stream-to-stream@^1.3.4:
   resolved "https://registry.npm.taobao.org/pull-stream-to-stream/download/pull-stream-to-stream-1.3.4.tgz#3f81d8216bd18d2bfd1a198190471180e2738399"
   integrity sha1-P4HYIWvRjSv9GhmBkEcRgOJzg5k=
 
-pull-stream@^3.2.3, pull-stream@^3.4.5, pull-stream@^3.5.0, pull-stream@^3.6.13, pull-stream@^3.6.14, pull-stream@^3.6.2, pull-stream@^3.6.7, pull-stream@^3.6.9:
+pull-stream@^3.2.3, pull-stream@^3.4.5, pull-stream@^3.5.0, pull-stream@^3.6.13, pull-stream@^3.6.14, pull-stream@^3.6.2, pull-stream@^3.6.9:
   version "3.6.14"
   resolved "https://registry.npm.taobao.org/pull-stream/download/pull-stream-3.6.14.tgz#529dbd5b86131f4a5ed636fdf7f6af00781357ee"
   integrity sha1-Up29W4YTH0pe1jb99/avAHgTV+4=
@@ -4749,6 +4773,19 @@ readable-stream@^2.0.0, readable-stream@^2.0.4, readable-stream@^2.0.6, readable
   version "2.3.6"
   resolved "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
+
+readable-stream@^2.2.2:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
+  integrity sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.3"
@@ -5398,6 +5435,11 @@ typedarray-to-buffer@~3.1.5:
   integrity sha1-qX7nqf9CaRufeD/xvFES/j/KkIA=
   dependencies:
     is-typedarray "^1.0.0"
+
+typedarray@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+  integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typeforce@^1.11.3, typeforce@^1.11.5:
   version "1.18.0"
